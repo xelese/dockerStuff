@@ -1,0 +1,23 @@
+# This file essentially creates the infrastructure that allows
+# one to create multiple docker containers that can talk to each other
+# over a network.
+
+# specify the version of docker compose.
+version: '3'
+
+# services define the containers I want to create.
+services:
+  # redis
+  redis-server:
+    image: 'redis'
+
+  # node
+  node-app:
+    # applies a restart policy | source: https://docs.docker.com/config/containers/start-containers-automatically/
+    restart: 'no'
+    # build from current package.json
+    build: .
+    # mapping ports
+    ports:
+      # '-' specifies an array [convention local-computer:docker-port]
+      - '4001:8081'
