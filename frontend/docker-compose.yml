@@ -1,0 +1,28 @@
+version: '3'
+services:
+  # service to run main application
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      # Windows specific command to allow updates in real time.
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+
+  # service to just run tests
+  tests:
+    build:
+      context: .
+    environment:
+      # Windows specific command to allow updates in real time.
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - /app/node_modules
+      - .:/app
+    # override command
+    command: [ "npm", "run", "test" ]
