@@ -10,3 +10,11 @@ Check for port mappings in docker configuration.
 This directory contains a node.js file that counts how  many people have visited a website.
 The major point of this docker compose file that it allows multiple containers to run and
 communicate with each other.
+
+## **frontend**
+
+This directory contains a React app.
+    
+- The first commit focuses on creating a docker file, and a docker compose file to run the app
+in production and development environments.
+  
