@@ -1,4 +1,4 @@
-# This is a repository which tests out docker
+# This is a repository which tests out the docker and kubernetes services
 
 ## **Simple_web**
 
