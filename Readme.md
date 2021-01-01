@@ -18,3 +18,4 @@ This directory contains a React app.
 - The first commit focuses on creating a docker file, and a docker compose file to run the app
 in production and development environments.
 - Second part focuses on Travis CI integration with github.
+- Third part is deployment on AWS, using travis CI.
