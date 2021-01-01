@@ -6,8 +6,6 @@ language: generic
 services:
   - docker
 
-before_script: cd frontend
-
 before_install:
   - cd frontend
   - docker build -t frontend-dev -f Dockerfile.dev .
