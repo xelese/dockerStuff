@@ -1,5 +1,5 @@
 /**
- * basic index.js that counts the 2_visits to this site.
+ * basic index.js that counts the visits to this site.
  */
 const express = require('express');
 const redis = require('redis');
@@ -12,12 +12,12 @@ const client = redis.createClient({
     // default redis port
     port: 6379
 });
-client.set('2_visits', 0);
+client.set('visits', 0);
 
 app.get('/', (req, res) => {
-    client.get('2_visits', (err, visits) => {
-        res.send('Number of 2_visits is ' + visits);
-        client.set('2_visits', parseInt(visits) + 1);
+    client.get('visits', (err, visits) => {
+        res.send('Number of visits is ' + visits);
+        client.set('visits', parseInt(visits) + 1);
     });
 });
 
