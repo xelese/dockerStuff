@@ -1,4 +1,5 @@
 # put this file in the root of the project before deploying.
+
 # need sudo for docker (always)
 sudo: required
 
@@ -10,11 +11,13 @@ services:
 before_install:
   # need to move into the project folder before we do anything.
   - cd frontend
+  # we are running Dockerfile.dev to test run tests.
   - docker build -t frontend-dev -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true frontend-dev npm run test -- --coverage
 
+# we deploy Dockerfile to AWS
 #deploy:
 #  provider: elasticbeanstalk
 #  region: "us-east-1"
