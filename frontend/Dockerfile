@@ -9,4 +9,8 @@ RUN npm run build
 FROM nginx
 # allows one to expose a port from container. Won't connect to the beanstalk otherwise.
 EXPOSE 80
+# will fail for aws
 COPY --from=builder /app/build /usr/share/nginx/html
+
+# use this for production
+#COPY --from=0 /app/build /usr/share/nginx/html
