@@ -1,0 +1,25 @@
+# This component reaches out to the K8s api
+# and asks master to create pods based on the template.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  # number of different pods
+  # this component is supposed to make.
+  replicas: 1
+  # Look for specific labels.
+  selector:
+    matchLabels:
+      compoenet: web
+  # the placeholder for creating pods.
+  template:
+    metadata:
+      labels:
+        compoenet: web
+    spec:
+      containers:
+        - name: client
+          image: stephengrider/multi-client
+          ports:
+            - containerPort: 3000
