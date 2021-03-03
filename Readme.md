@@ -25,3 +25,7 @@ This directory contains a React app.
   fibonacci sequence to a certain index and stores it in redis.
 - Second part focuses on nginx deployment on production environment.
 - Third part contains deploying on AWS.
+
+## **simpleK8s**
+- Creating kubernetes Pods and Service.
+- Deploying updates and running application via minikube/Docker desktop client and Kubectl.
