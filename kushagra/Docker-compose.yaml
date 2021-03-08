@@ -1,9 +1,10 @@
 version: '3.7'
 services:
   minio:
+    container_name: minio
     build:
-      dockerfile: Dockerfile
       context: ./minio
+      dockerfile: Dockerfile
     volumes:
       - .minio/data:/data
     ports:
@@ -11,4 +12,19 @@ services:
     environment:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
+    networks:
+      - backend
     command: server /data
+  python-service:
+    build:
+      context: ./minio-connector
+      dockerfile: Dockerfile
+    depends_on:
+      - minio
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
