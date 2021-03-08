@@ -23,8 +23,6 @@ services:
       - minio
     networks:
       - backend
-
 networks:
   backend:
     driver: bridge
-
